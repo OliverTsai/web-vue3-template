@@ -7,19 +7,19 @@ export const useDataStore = defineStore('dataStore', {
         bkleagueData: null,
     }),
     actions: {
-        async fetchLeagueData() {
+        async fetchData() {
             if (!this.leagueData) {  // 檢查快取中是否已有數據
                 try {
-                    this.leagueData = await fetchPosts('https://befenscore.net/api/league-data')
+                    this.leagueData = await fetchPosts('存取資料到快取的API')
                 } catch (error) {
                     console.error('Failed to fetch league data:', error)
                 }
             }
         },
-        async bkLeagueData() {
+        async fetchData2() {
             if (!this.bkleagueData) {  // 檢查快取中是否已有數據
                 try {
-                    this.bkleagueData = await fetchPosts('https://befenscore.net/bk/league-data')
+                    this.bkleagueData = await fetchPosts('存取資料到快取的API')
                 } catch (error) {
                     console.error('Failed to fetch league data:', error)
                 }
